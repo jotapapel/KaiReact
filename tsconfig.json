@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "removeComments": true,
+        "rootDir": "src",
+        "target": "ES5",
+        "outDir": "dist/js",
+        "moduleResolution": "classic",
+        "lib": [ "ES5", "dom" ]
+    }
+}
