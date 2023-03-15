@@ -1,8 +1,4 @@
-class Singleton {
+class Keyboard {
+	private static instance: Keyboard = new Keyboard();
 	private constructor() {}
-	private static value = 32;
-	static trace () {
-		console.log(this.value);
-	}
 }
-
