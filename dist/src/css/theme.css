@@ -1,3 +1,11 @@
+*,
+*:before,
+*:after {
+  -moz-user-select: none;
+  box-sizing: border-box;
+}
+
 body {
-  animation: opacity 0.2 linear;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
 }

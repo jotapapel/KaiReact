@@ -1,5 +1,13 @@
 $animation-time: 0.2;
 
+*,
+*:before,
+*:after {
+    -moz-user-select: none;
+    box-sizing: border-box;
+}
+
 body {
-    animation: opacity $animation-time linear;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
 }
