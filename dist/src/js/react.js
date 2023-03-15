@@ -12,10 +12,8 @@ var React;
     var Element = (function () {
         function Element(descriptor) {
             var _this = this;
-            var _a;
             var target = null;
             this.innerElement = descriptor.selector ? document.querySelector(descriptor.selector) : undefined;
-            (_a = this.innerElement) === null || _a === void 0 ? void 0 : _a.addEventListener('transitionend', function (event) { var _a; (_a = _this.performed) === null || _a === void 0 ? void 0 : _a.call(_this, 'transitionend', event); }, true);
             this.rawData = descriptor.data;
             Object.keys(descriptor.data).forEach(function (key) {
                 var value = descriptor.data[key], storage = new Storage();
@@ -33,7 +31,7 @@ var React;
             target = function () {
                 var template = descriptor.template.replace(/\{\{(.*)\}\}/g, function (_, key) { return _this[key]; });
                 _this.template = template.replace(/[\r\n\t]/g, '').trim();
-                if (_this.innerElement instanceof HTMLElement)
+                if (_this.innerElement)
                     _this.innerElement.innerHTML = _this.template;
             };
             target();

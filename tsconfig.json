@@ -1,11 +1,11 @@
 {
-    "compilerOptions": {
-        "removeComments": true,
-        "rootDir": "src",
-        "target": "ES5",
-        "outDir": "dist/src/",
-        "lib": [ "ES5", "dom" ]
-    },
-    "include": ["src/**/*"],
-    "exclude": ["src/test/*"]
+	"compilerOptions": {
+		"removeComments": true,
+		"target": "ES5",
+		"rootDir": "src",
+		"outDir": "dist/src/",
+		"lib": [ "ES5", "dom" ]
+	},
+	"include": ["src/**/*"],
+	"exclude": ["src/test/*"]
 }

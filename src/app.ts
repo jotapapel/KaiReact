@@ -1,11 +1,5 @@
-let TestElement = new React.Element({
-	selector: '#kai-view-container',
-	data: {
-		content: ''
-	},
-	template: `{{content}}`
-});
+import ReactElement = React.Element;
 
-SoftkeyManager.Manager.bind(SoftkeyManager.Command.CENTER, 'Enter', () => {
-	console.log('Cheers mate!');
+Foundation.KeyboardListener.add(Foundation.KeyboardKey.Enter, () => {
+	console.log('Enter has been pressed...');
 });
