@@ -1,5 +1,6 @@
 // Reactive component library for KaiOS v2.5.x devices.
 // Author: jotapapel
+// Version: 1.0
 namespace React {
 	class Storage {
 		subscribers: any[] = [];
