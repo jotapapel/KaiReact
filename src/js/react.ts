@@ -1,4 +1,4 @@
-namespace KaiReact {
+namespace React {
 	class Storage {
 		subscribers: any[] = [];
 		depend (target: any) { if (target && this.subscribers.indexOf(target) === -1) this.subscribers.push(target); }

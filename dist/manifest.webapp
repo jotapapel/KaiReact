@@ -1,0 +1,25 @@
+{
+	"version": "0.5",
+	"name": "Application",
+	"description": "Application template.",
+	"type": "certified",
+	"launch_path": "/index.html",
+	"origin": "app://application.kaibasic.org",
+	"icons": {
+		"56": "/res/icon-56.png",
+		"112": "/res/icon-112.png"
+	},
+	"permissions": {
+		"telephony": {},
+		"mobileconnection": {},
+		"contacts": {"access": "readwrite"}
+	},
+	"developer": {
+		"name": "jotapapel",
+		"url": "https://github.com/jotapapel"
+	},
+	"default_locale": "es-US",
+	"chrome": {
+		"statusbar": "overlap"
+	}
+}
