@@ -9,3 +9,11 @@ body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
 }
+
+#kai-root {
+  position: absolute;
+  right: 0;
+  top: 26px;
+  left: 0;
+  bottom: 0;
+}
