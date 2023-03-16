@@ -1,4 +1,5 @@
 $animation-time: 0.2;
+$statusbar-height: 26px;
 
 *,
 *:before,
@@ -10,4 +11,12 @@ $animation-time: 0.2;
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+}
+
+#kai-root {
+    position: absolute;
+    right: 0;
+    top: $statusbar-height;
+    left: 0;
+    bottom: 0;
 }

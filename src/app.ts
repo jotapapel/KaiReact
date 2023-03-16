@@ -1,5 +1,5 @@
 import ReactElement = React.Element;
 
-Foundation.KeyboardListener.add(Foundation.KeyboardKey.Enter, () => {
-	console.log('Enter has been pressed...');
+Foundation.SoftkeyHandler.bind(Foundation.KeyboardKey.Enter, 'Log',  function () {
+	this.element.labelCenter = 'Logged';
 });
