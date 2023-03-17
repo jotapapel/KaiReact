@@ -19,9 +19,14 @@ body {
 }
 
 #kai-softkey-container {
+  opacity: 1;
   height: 30px;
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
+  transition: opacity 0.2 linear;
+}
+#kai-softkey-container.transitioning {
+  opacity: 0;
 }

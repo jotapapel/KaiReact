@@ -23,9 +23,15 @@ body {
 }
 
 #kai-softkey-container {
+	opacity: 1;
 	height: $softkey-height;
 	position: absolute;
 	right: 0;
 	left: 0;
 	bottom: 0;
+	transition: opacity $animation-time linear;
+
+	&.transitioning {
+		opacity: 0;
+	}
 }

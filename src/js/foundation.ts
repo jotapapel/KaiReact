@@ -11,8 +11,8 @@ enum KeyboardKey {
 }
 
 namespace KeyboardListener {
-	let methods: {[index: string]: Function} = {};
-	document.addEventListener('keypress', (event) => {
+	const methods: {[index: string]: Function} = {};
+	document.addEventListener('keypress', (event: KeyboardEvent) => {
 		if (KeyboardKey[event.key]) methods[event.key]();
 	});
 	export function add (key: KeyboardKey, method: Function) {
@@ -21,7 +21,7 @@ namespace KeyboardListener {
 }
 
 class SoftkeyHandler {
-	static element: React.Element = new React.Element({
+	private static element: React.Element = new React.Element({
 		selector: '#kai-softkey-container',
 		data: {
 			labelLeft: '',
@@ -29,18 +29,18 @@ class SoftkeyHandler {
 			labelRight: ''
 		},
 		template: `
-			<label id="kai-softkey-left">{{labelLeft}}</label>
-			<label id="kai-softkey-center">{{labelCenter}}</label>
-			<label id="kai-softkey-right">{{labelRight}}</label>
+			<label class="kai-softkey-left">{{labelLeft}}</label>
+			<label class="kai-softkey-center">{{labelCenter}}</label>
+			<label class="kai-softkey-right">{{labelRight}}</label>
 		`
 	});
 	static set visible (value: boolean) {
 		switch (value) {
 			case false:
-				SoftkeyHandler.element.innerElement.classList.add('hidden');
+				SoftkeyHandler.element.innerElement?.classList.add('hidden');
 				break;
 			case true:
-				SoftkeyHandler.element.innerElement.classList.remove('hidden');
+				SoftkeyHandler.element.innerElement?.classList.remove('hidden');
 				break;
 		}
 	}
@@ -63,18 +63,45 @@ class SoftkeyHandler {
 	}
 }
 
+class ViewManager {
+	private static stack: View[] = [];
+	private static element: React.Element = new React.Element({
+		selector: '#kai-view-container',
+		data: {
+			content: 'HELLO WORLD!'
+		},
+		template: '{{content}}'
+	});
+	constructor () {
+		// TODO: View Manager
+	}
+	static get current () {
+		return ViewManager.stack[ViewManager.stack.length - 1];
+	}
+	static set current (view: View) {
+		ViewManager.stack.push(view);
+		ViewManager.update();
+	}
+	static update () {
+		ViewManager.current.init();
+		ViewManager.element.content = ViewManager.current.template;
+	}
+}
+
 class View extends React.Element {
-	constructor (title = '') {
+	init: Function;
+	constructor (title = '', secondary: boolean = false, init: Function = () => {}) {
 		super({
 			data: {
 				title: title,
+				secondary: secondary ? ' secondary' : '',
 				content: ''
 			},
-			template: `<div class="kai-view">
+			template: `<div class="kai-view{{secondary}}">
 				<div class="kai-view-header">{{title}}</div>
 				<div class="kai-view-content">{{content}}</div>
 			</div>`
-		})
-		// TODO: view implementaton;
+		});
+		this.init = init;
 	}
 }

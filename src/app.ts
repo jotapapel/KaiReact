@@ -1,5 +1,6 @@
-import ReactElement = React.Element;
-
-SoftkeyHandler.bind(KeyboardKey.Enter, 'Log',  function () {
-	this.element.labelCenter = 'Logged';
+ViewManager.current = new View('Title', true, function () {
+	SoftkeyHandler.bind(KeyboardKey.Enter, 'Ok', () => {
+		console.log(this);
+		console.log('Center button pressed...');
+	});
 });

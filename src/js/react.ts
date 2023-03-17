@@ -8,12 +8,12 @@ namespace React {
 		notify () { this.subscribers.forEach((sub) => sub()); }
 	}
 	export class Element {
-		innerElement: HTMLElement;
+		[index: string]: any;
+		innerElement?: HTMLElement|null;
 		rawData: object;
 		template: string;
-		[index: string]: any;
 		constructor(descriptor: {selector?: string, data: {[index: string]: any}, template: string}) {
-			let target = null;
+			let target: any = null;
 			// element: The HTMLElement binded to the reactive element.
 			this.innerElement = descriptor.selector ? document.querySelector(descriptor.selector) : undefined;
 			// data: variables to watch for reactivity (the 'rawData' variable is generated to hold initial values).
