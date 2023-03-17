@@ -1,6 +1,7 @@
 @use "sass:math";
 
 $statusbar-height: 26px;
+$view-header-height: 30px;
 $softkey-height: 30px;
 $animation-time: 0.25s;
 
@@ -29,10 +30,38 @@ body {
 
 #kai-view-container {
 	opacity: 1;
-	transition: opacity $animation-time linear;
+	position: absolute;
+	right: 0;
+	top: 0;
+	left: 0;
+	bottom: $softkey-height;
+	transition: opacity $animation-time linear, bottom $animation-time linear;
+	border-bottom: 2px solid lime;
+
+	 #kai-softkey-container.hidden ~ & {
+		bottom: 0;
+		border-bottom-color: red;
+	}
 
 	&.transitioning {
 		opacity: 0;
+	}
+
+	.kai-view {
+		position: relative;
+
+		.kai-view-header {
+			line-height: $view-header-height;
+			height: $view-header-height;
+		}
+
+		.kai-view-content {
+			position: absolute;
+			right: 0;
+			top: $view-header-height;
+			left: 0;
+			bottom: 0;
+		}
 	}
 }
 

@@ -3,4 +3,7 @@ ViewManager.current = new KaiUI.View('Title', false, function () {
     SoftkeyHandler.bind(KeyboardKey.Enter, 'Ok', function () {
         this.visible = false;
     });
+    KeyboardListener.bind(KeyboardKey.Backspace, function () {
+        SoftkeyHandler.visible = true;
+    });
 });

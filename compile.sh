@@ -1,7 +1,7 @@
 #! /bin/sh
 clear
 echo "styles"
-sass src/css:dist/src/css --no-source-map
+sass src/css/:dist/src/css --no-source-map
 echo "styles: ready"
 echo "script"
 tsc

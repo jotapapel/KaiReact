@@ -15,7 +15,7 @@ namespace KeyboardListener {
 	document.addEventListener('keypress', (event: KeyboardEvent) => {
 		if (KeyboardKey[event.key]) methods[event.key]();
 	});
-	export function add (key: KeyboardKey, method: Function) {
+	export function bind (key: KeyboardKey, method: Function) {
 		methods[key] = method;
 	}
 }
@@ -36,7 +36,7 @@ namespace KaiUI {
 			`
 		});
 		get visible () {
-			return this.element.HTMLElement.classList.contains('hidden');
+			return this.element.innerElement?.classList.contains('hidden');
 		}
 		set visible (value: boolean) {
 			switch (value) {
@@ -60,7 +60,7 @@ namespace KaiUI {
 					this.element.labelRight = label;
 					break;
 			};
-			KeyboardListener.add(key, method.bind(this));
+			KeyboardListener.bind(key, method.bind(this));
 		}
 	}
 

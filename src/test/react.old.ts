@@ -1,7 +1,7 @@
 // Reactive component library for KaiOS v2.5.x devices.
 // Author: jotapapel
 // Version: 1.0
-namespace React {
+namespace OldReact {
 	class Storage {
 		subscribers: any[] = [];
 		depend (target: any) { if (target && this.subscribers.indexOf(target) === -1) this.subscribers.push(target); }

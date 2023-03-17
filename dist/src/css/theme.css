@@ -23,10 +23,34 @@ body {
 
 #kai-view-container {
   opacity: 1;
-  transition: opacity 0.25s linear;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 30px;
+  transition: opacity 0.25s linear, bottom 0.25s linear;
+  border-bottom: 2px solid lime;
+}
+#kai-softkey-container.hidden ~ #kai-view-container {
+  bottom: 0;
+  border-bottom-color: red;
 }
 #kai-view-container.transitioning {
   opacity: 0;
+}
+#kai-view-container .kai-view {
+  position: relative;
+}
+#kai-view-container .kai-view .kai-view-header {
+  line-height: 30px;
+  height: 30px;
+}
+#kai-view-container .kai-view .kai-view-content {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  left: 0;
+  bottom: 0;
 }
 
 #kai-softkey-container {
