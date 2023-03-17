@@ -12,8 +12,11 @@ enum KeyboardKey {
 
 namespace KeyboardListener {
 	const methods: {[index: string]: Function} = {};
-	document.addEventListener('keypress', (event: KeyboardEvent) => {
-		if (KeyboardKey[event.key]) methods[event.key]();
+	document.addEventListener('keydown', (event: KeyboardEvent) => {
+		if (KeyboardKey[event.key] && methods[event.key]) {
+			if (event.key == KeyboardKey.Backspace) event.preventDefault();
+			methods[event.key]();
+		}
 	});
 	export function bind (key: KeyboardKey, method: Function) {
 		methods[key] = method;
