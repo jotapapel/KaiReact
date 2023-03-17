@@ -17,3 +17,11 @@ body {
   left: 0;
   bottom: 0;
 }
+
+#kai-softkey-container {
+  height: 30px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}

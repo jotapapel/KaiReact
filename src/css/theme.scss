@@ -1,22 +1,31 @@
 $animation-time: 0.2;
 $statusbar-height: 26px;
+$softkey-height: 30px;
 
 *,
 *:before,
 *:after {
-    -moz-user-select: none;
-    box-sizing: border-box;
+	-moz-user-select: none;
+	box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
 }
 
 #kai-root {
-    position: absolute;
-    right: 0;
-    top: $statusbar-height;
-    left: 0;
-    bottom: 0;
+	position: absolute;
+	right: 0;
+	top: $statusbar-height;
+	left: 0;
+	bottom: 0;
+}
+
+#kai-softkey-container {
+	height: $softkey-height;
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 0;
 }
