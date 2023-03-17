@@ -62,3 +62,19 @@ class SoftkeyHandler {
 		KeyboardListener.add(key, method.bind(this));
 	}
 }
+
+class View extends React.Element {
+	constructor (title = '') {
+		super({
+			data: {
+				title: title,
+				content: ''
+			},
+			template: `<div class="kai-view">
+				<div class="kai-view-header">{{title}}</div>
+				<div class="kai-view-content">{{content}}</div>
+			</div>`
+		})
+		// TODO: view implementaton;
+	}
+}
