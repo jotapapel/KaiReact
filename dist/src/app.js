@@ -1,7 +1,6 @@
-ViewManager.current = new View('Title', true, function () {
-    var _this = this;
+var SoftkeyHandler = new KaiUI.SoftkeyHandler(), ViewManager = new KaiUI.ViewManager();
+ViewManager.current = new KaiUI.View('Title', false, function () {
     SoftkeyHandler.bind(KeyboardKey.Enter, 'Ok', function () {
-        console.log(_this);
-        console.log('Center button pressed...');
+        this.visible = false;
     });
 });

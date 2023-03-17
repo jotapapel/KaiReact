@@ -8,6 +8,9 @@
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 #kai-root {
@@ -18,15 +21,24 @@ body {
   bottom: 0;
 }
 
+#kai-view-container {
+  opacity: 1;
+  transition: opacity 0.25s linear;
+}
+#kai-view-container.transitioning {
+  opacity: 0;
+}
+
 #kai-softkey-container {
   opacity: 1;
+  background-color: #ccc;
   height: 30px;
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
-  transition: opacity 0.2 linear;
+  transition: bottom 0.25s linear;
 }
-#kai-softkey-container.transitioning {
-  opacity: 0;
+#kai-softkey-container.hidden {
+  bottom: -30px;
 }

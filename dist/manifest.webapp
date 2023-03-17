@@ -12,7 +12,9 @@
 	"permissions": {
 		"telephony": {},
 		"mobileconnection": {},
-		"contacts": {"access": "readwrite"}
+		"contacts": {
+			"access": "readwrite"
+		}
 	},
 	"developer": {
 		"name": "jotapapel",
