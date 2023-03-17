@@ -22,7 +22,7 @@ namespace KeyboardListener {
 
 namespace KaiUI {
 	export class SoftkeyHandler {
-		private element: React.Element = new React.Element({
+		private element: ReactiveElement = new ReactiveElement({
 			selector: '#kai-softkey-container',
 			data: {
 				labelLeft: '',
@@ -66,7 +66,7 @@ namespace KaiUI {
 
 	export class ViewManager {
 		private stack: View[] = [];
-		private element: React.Element = new React.Element({
+		private element: ReactiveElement = new ReactiveElement({
 			selector: '#kai-view-container',
 			data: {
 				content: ''
@@ -94,9 +94,9 @@ namespace KaiUI {
 		}
 	}
 
-	export class View extends React.Element {
+	export class View extends ReactiveElement {
 		init: Function;
-		constructor (title = '', secondary: boolean = false, init: Function = () => {}) {
+		constructor (title: string = '', secondary: boolean = false, init: Function = () => {}) {
 			super({
 				data: {
 					title: title,
