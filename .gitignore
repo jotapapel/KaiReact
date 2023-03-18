@@ -3,3 +3,4 @@
 /src/test/*
 !/.vscode
 /.vscode/*
+/tsconfig.json
