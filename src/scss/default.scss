@@ -1,12 +1,6 @@
 @use "sass:math";
+@import "dimens.scss";
 @import "theme.scss";
-
-$padding: 10px;
-$animation-time: 0.15s;
-
-$statusbar-height: 26px;
-$view-header-height: 30px;
-$softkey-height: 30px;
 
 *,
 *:before,
