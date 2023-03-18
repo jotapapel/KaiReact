@@ -12,7 +12,7 @@ enum KeyboardKey {
 
 namespace KeyboardListener {
 	const methods: {[index: string]: Function} = {};
-	document.addEventListener('keydown', (event: KeyboardEvent) => {
+	document.addEventListener('keydown', event => {
 		if (KeyboardKey[event.key] && methods[event.key]) {
 			if (event.key == KeyboardKey.Backspace) event.preventDefault();
 			methods[event.key]();
@@ -20,6 +20,15 @@ namespace KeyboardListener {
 	});
 	export function bind (key: KeyboardKey, method: Function) {
 		methods[key] = method;
+	}
+	export function clear (key: KeyboardKey|KeyboardKey[]) {
+		if (typeof key === 'string') {
+			delete methods[key];
+		} else {
+			key.forEach(k => {
+				delete methods[k];
+			});
+		}
 	}
 }
 
@@ -38,7 +47,7 @@ namespace KaiUI {
 				<label class="kai-softkey-right">{{labelRight}}</label>
 			`
 		});
-		get visible () {
+		get visible (): boolean {
 			return this.element.innerElement?.classList.contains('hidden');
 		}
 		set visible (value: boolean) {
@@ -66,6 +75,7 @@ namespace KaiUI {
 			KeyboardListener.bind(key, method.bind(this));
 		}
 		clear () {
+			KeyboardListener.clear([KeyboardKey.SoftLeft, KeyboardKey.Enter, KeyboardKey.SoftRight]);
 			this.element.reset();
 		}
 	}
@@ -88,7 +98,7 @@ namespace KaiUI {
 			}
 			return previous;
 		}
-		get current () {
+		get current (): View {
 			return this.stack[this.stack.length - 1];
 		}
 		set current (view: View) {

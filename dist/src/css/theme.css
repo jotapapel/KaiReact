@@ -39,6 +39,22 @@ body {
 #kai-view-container .kai-view {
   position: relative;
 }
+#kai-view-container .kai-view.secondary .kai-view-header {
+  padding-left: 30px;
+}
+#kai-view-container .kai-view.secondary .kai-view-header:after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  width: 12px;
+  height: 12px;
+  border-width: 0 0 3px 3px;
+  border-color: inherit;
+  border-style: solid;
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
 #kai-view-container .kai-view .kai-view-header {
   line-height: 30px;
   height: 30px;

@@ -9,14 +9,14 @@ class ReactiveElement {
 	constructor(descriptor: {selector?: string, data: {[index: string]: any}, template: string}) {
         let update = this.render(descriptor.template);
 		this.innerElement = descriptor.selector ? document.querySelector(descriptor.selector) : undefined;
-		Object.keys(descriptor.data).forEach((key) => {
+		Object.keys(descriptor.data).forEach(key => {
 			let value = descriptor.data[key];
 			this.rawData[key] = value;
 			Object.defineProperty(this, key, {
 				get: () => {
 					return value;
 				},
-				set: (newValue: any) => {
+				set: newValue => {
 					value = newValue;
 					update();
 				}
@@ -32,7 +32,7 @@ class ReactiveElement {
 		}
 	}
 	reset () {
-		Object.keys(this.rawData).forEach((key) => {
+		Object.keys(this.rawData).forEach(key => {
 			this[key] = this.rawData[key];
 		});
 	}

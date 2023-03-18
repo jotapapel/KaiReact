@@ -49,6 +49,24 @@ body {
 	.kai-view {
 		position: relative;
 
+		&.secondary .kai-view-header {
+			padding-left: $padding * 3;
+		}
+
+		&.secondary .kai-view-header:after {
+			content: "";
+			position: absolute;
+			top: 9px;
+			left: 10px;
+			width: 12px;
+			height: 12px;
+			border-width: 0 0 3px 3px;
+			border-color: inherit;
+			border-style: solid;
+			transform: rotate(45deg);
+			opacity: .6;
+		}
+
 		.kai-view-header {
 			line-height: $view-header-height;
 			height: $view-header-height;
