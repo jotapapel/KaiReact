@@ -1,6 +1,0 @@
-/compile.sh
-!/src/test
-/src/test/*
-!/.vscode
-/.vscode/*
-/tsconfig.json
