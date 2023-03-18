@@ -1,11 +1,11 @@
-// Reactive component implementation for KaiOS v2.5.x devices (written in strict ES5).
+// Reactive component implementation for KaiOS v2.5.x devices (written for strict ES5).
 // Author: jotapapel
 // Version: 1.0
 class ReactiveElement {
 	[index: string]: any;
-	innerElement?: HTMLElement|null;
+	innerElement?: HTMLElement;
 	rawData: {[index: string]: any} = {};
-	template: string = '';
+	template: string;
 	constructor(descriptor: {selector?: string, data: {[index: string]: any}, template: string}) {
         let update = this.render(descriptor.template);
 		this.innerElement = descriptor.selector ? document.querySelector(descriptor.selector) : undefined;

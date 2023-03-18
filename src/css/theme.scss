@@ -1,10 +1,10 @@
 @use "sass:math";
 
+$animation-time: 0.25s;
+$padding: 10px;
 $statusbar-height: 26px;
 $view-header-height: 30px;
 $softkey-height: 30px;
-$animation-time: 0.25s;
-$master-padding: 10px;
 
 *,
 *:before,
@@ -52,7 +52,7 @@ body {
 		.kai-view-header {
 			line-height: $view-header-height;
 			height: $view-header-height;
-			padding: 0 $master-padding;
+			padding: 0 $padding;
 			text-transform: uppercase;
 			font-weight: 600;
 		}
@@ -79,8 +79,8 @@ body {
 
 	display: grid;
 	grid-template-columns: 30% auto 30%;
-	grid-gap: math.div($master-padding, 2);
-	padding: 0 math.div($master-padding, 2);
+	grid-gap: math.div($padding, 2);
+	padding: 0 math.div($padding, 2);
 
 	&.hidden {
 		bottom: -$softkey-height;
