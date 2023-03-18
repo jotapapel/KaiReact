@@ -32,6 +32,22 @@ namespace KeyboardListener {
 	}
 }
 
+enum Theme {
+	'light' = 'rgb(255, 255, 255)',
+	'dark' = 'rgb(0, 0, 0)'
+}
+
+class ThemeManager {
+	private constructor() {}
+	static set theme (theme: Theme | string) {
+		document.querySelector('html').setAttribute('data-theme', theme);
+		document.querySelector('meta[name="theme-color"]').setAttribute("content", Theme[theme]);
+	}
+	static get theme () {
+		return document.querySelector('html').getAttribute('data-theme');
+	}
+}
+
 namespace KaiUI {
 	export class SoftkeyHandler {
 		private element: ReactiveElement = new ReactiveElement({

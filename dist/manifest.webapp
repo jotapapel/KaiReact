@@ -21,6 +21,8 @@
 		"url": "https://github.com/jotapapel"
 	},
 	"default_locale": "es-US",
+	"fullscreen": true,
+	"background_color": "transparent",
 	"chrome": {
 		"statusbar": "overlap"
 	}

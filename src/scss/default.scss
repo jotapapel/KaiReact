@@ -10,6 +10,7 @@ $animation-time: 0.15s;
 	user-select: none;
 	-moz-user-select: none;
 	box-sizing: border-box;
+	transition: background-color $animation-time linear, color $animation-time linear;
 }
 
 body {
@@ -26,10 +27,6 @@ body {
 }
 
 #kai-root {
-	@include theme {
-		background-color: theme-value('background-color');
-	}
-
 	position: absolute;
 	right: 0;
 	top: dimens-value('statusbar-height');
@@ -116,7 +113,7 @@ body {
 	padding: 0 math.div(dimens-value('padding'), 2);
 
 	&.hidden {
-		bottom: -dimens-value('softkey-height');
+		bottom: dimens-value('softkey-height') * -1;
 	}
 
 	label {
