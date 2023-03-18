@@ -29,11 +29,9 @@ body {
   left: 0;
   bottom: 30px;
   transition: opacity 0.25s linear, bottom 0.25s linear;
-  border-bottom: 2px solid lime;
 }
 #kai-softkey-container.hidden ~ #kai-view-container {
   bottom: 0;
-  border-bottom-color: red;
 }
 #kai-view-container.transitioning {
   opacity: 0;
@@ -44,6 +42,9 @@ body {
 #kai-view-container .kai-view .kai-view-header {
   line-height: 30px;
   height: 30px;
+  padding: 0 10px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 #kai-view-container .kai-view .kai-view-content {
   position: absolute;
@@ -62,7 +63,20 @@ body {
   left: 0;
   bottom: 0;
   transition: bottom 0.25s linear;
+  display: grid;
+  grid-template-columns: 30% auto 30%;
+  grid-gap: 5px;
+  padding: 0 5px;
 }
 #kai-softkey-container.hidden {
   bottom: -30px;
+}
+#kai-softkey-container label {
+  max-width: 100%;
+  line-height: 30px;
+}
+#kai-softkey-container label.kai-softkey-center {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
 }

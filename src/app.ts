@@ -1,11 +1,14 @@
 const SoftkeyHandler = new KaiUI.SoftkeyHandler(),
 	  ViewManager = new KaiUI.ViewManager();
 
-ViewManager.current = new KaiUI.View('Title', false, function () {
-	SoftkeyHandler.bind(KeyboardKey.Enter, 'Ok', function () {
-		this.visible = false;
-	});
-	KeyboardListener.bind(KeyboardKey.Backspace, () => {
-		SoftkeyHandler.visible = true;
+KeyboardListener.bind(KeyboardKey.Backspace, () => { ViewManager.back(); });
+
+const MainView = new KaiUI.View('Title', false, function () {
+	SoftkeyHandler.bind(KeyboardKey.Enter, 'Next', function () {
+		ViewManager.current = SecondaryView;
 	});
 });
+const SecondaryView = new KaiUI.View('Secondary', true, () => {
+	SoftkeyHandler.clear();
+});
+ViewManager.current = MainView;

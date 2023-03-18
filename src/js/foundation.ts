@@ -65,6 +65,9 @@ namespace KaiUI {
 			};
 			KeyboardListener.bind(key, method.bind(this));
 		}
+		clear () {
+			this.element.reset();
+		}
 	}
 
 	export class ViewManager {
@@ -76,9 +79,14 @@ namespace KaiUI {
 			},
 			template: '{{content}}'
 		});
-		back () {
+		back (): View {
 			let previous = this.stack.pop();
-			this.update();
+			if (this.stack.length == 0) {
+				window.close();
+			} else {
+				this.update();
+			}
+			return previous;
 		}
 		get current () {
 			return this.stack[this.stack.length - 1];

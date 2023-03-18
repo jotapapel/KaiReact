@@ -4,6 +4,7 @@ $statusbar-height: 26px;
 $view-header-height: 30px;
 $softkey-height: 30px;
 $animation-time: 0.25s;
+$master-padding: 10px;
 
 *,
 *:before,
@@ -36,11 +37,9 @@ body {
 	left: 0;
 	bottom: $softkey-height;
 	transition: opacity $animation-time linear, bottom $animation-time linear;
-	border-bottom: 2px solid lime;
 
 	 #kai-softkey-container.hidden ~ & {
 		bottom: 0;
-		border-bottom-color: red;
 	}
 
 	&.transitioning {
@@ -53,6 +52,9 @@ body {
 		.kai-view-header {
 			line-height: $view-header-height;
 			height: $view-header-height;
+			padding: 0 $master-padding;
+			text-transform: uppercase;
+			font-weight: 600;
 		}
 
 		.kai-view-content {
@@ -75,7 +77,23 @@ body {
 	bottom: 0;
 	transition: bottom $animation-time linear;
 
+	display: grid;
+	grid-template-columns: 30% auto 30%;
+	grid-gap: math.div($master-padding, 2);
+	padding: 0 math.div($master-padding, 2);
+
 	&.hidden {
 		bottom: -$softkey-height;
+	}
+
+	label {
+		max-width: 100%;
+		line-height: $softkey-height;
+	}
+
+	label.kai-softkey-center {
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: 700;
 	}
 }
