@@ -1,13 +1,1 @@
-var SoftkeyHandler = new KaiUI.SoftkeyHandler(), ViewManager = new KaiUI.ViewManager();
-KeyboardListener.bind(KeyboardKey.Backspace, function () { ViewManager.back(); });
-var MainView = new KaiUI.View('KaiReact Test', false, function () {
-    SoftkeyHandler.clear(true);
-    SoftkeyHandler.bind(KeyboardKey.Enter, 'Next', function () {
-        ViewManager.current = SecondaryView;
-    });
-});
-var SecondaryView = new KaiUI.View('', true, function () {
-    SoftkeyHandler.clear(false);
-    this.content = 'This is a secondary view, no interactions, just text, hence no softkeys.</br></br>Press the back key to go back.';
-});
-ViewManager.current = MainView;
+var SoftkeyHandler=new KaiUI.SoftkeyHandler,ViewManager=new KaiUI.ViewManager,MainView=(KeyboardListener.bind(KeyboardKey.Backspace,function(){ViewManager.back()}),new KaiUI.View("KaiReact Test",!1,function(){SoftkeyHandler.clear(!0),SoftkeyHandler.bind(KeyboardKey.Enter,"Next",function(){ViewManager.current=SecondaryView})})),SecondaryView=new KaiUI.View("",!0,function(){SoftkeyHandler.clear(!1),this.content="This is a secondary view, no interactions, just text, hence no softkeys.</br></br>Press the back key to go back."});ViewManager.current=MainView;

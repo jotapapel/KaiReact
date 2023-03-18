@@ -1,5 +1,9 @@
-$padding: 10px;
-$animation-time: 0.15s;
-$statusbar-height: 26px;
-$view-header-height: 30px;
-$softkey-height: 30px;
+$dimensions: (
+	padding: 10px,
+	statusbar-height: 26px,
+	softkey-height: 30px
+);
+
+@function dimens-value($key) {
+	@return map-get( $dimensions, $key );
+}

@@ -91,13 +91,13 @@ namespace KaiUI {
 			template: '{{content}}'
 		});
 		back (): View {
-			let previous = this.stack.pop();
-			if (this.stack.length == 0) {
+			if (this.stack.length == 1) {
 				window.close();
 			} else {
+				let previous = this.stack.pop();
 				this.update();
+				return previous;
 			}
-			return previous;
 		}
 		get current (): View {
 			return this.stack[this.stack.length - 1];

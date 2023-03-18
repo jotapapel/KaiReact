@@ -2,6 +2,8 @@
 @import "dimens.scss";
 @import "theme.scss";
 
+$animation-time: 0.15s;
+
 *,
 *:before,
 *:after {
@@ -30,7 +32,7 @@ body {
 
 	position: absolute;
 	right: 0;
-	top: $statusbar-height;
+	top: dimens-value('statusbar-height');
 	left: 0;
 	bottom: 0;
 	overflow: hidden;
@@ -42,7 +44,7 @@ body {
 	right: 0;
 	top: 0;
 	left: 0;
-	bottom: $softkey-height;
+	bottom: dimens-value('softkey-height');
 	transition: opacity $animation-time linear, bottom $animation-time linear;
 
 	 #kai-softkey-container.hidden ~ & {
@@ -57,12 +59,12 @@ body {
 		position: relative;
 
 		&.secondary .kai-view-header {
-			padding-left: $padding * 3;
+			padding-left: dimens-value('padding') * 3;
 			text-align: left;
 		}
 
 		&.secondary .kai-view-header:after {
-			content: "";
+			content: '';
 			position: absolute;
 			top: 9px;
 			left: 10px;
@@ -75,9 +77,9 @@ body {
 		}
 
 		.kai-view-header {
-			line-height: $view-header-height;
-			height: $view-header-height;
-			padding: 0 $padding;
+			line-height: 30px;
+			height: 30px;
+			padding: 0 dimens-value('padding');
 			text-align: center;
 			text-transform: uppercase;
 			font-weight: 600;
@@ -86,10 +88,10 @@ body {
 		.kai-view-content {
 			position: absolute;
 			right: 0;
-			top: $view-header-height;
+			top: 30px;
 			left: 0;
 			bottom: 0;
-			padding: $padding;
+			padding: dimens-value('padding');
 			text-align: justify;
 		}
 	}
@@ -101,7 +103,7 @@ body {
 	}
 
 	opacity: 1;
-	height: $softkey-height;
+	height: dimens-value('softkey-height');
 	position: absolute;
 	right: 0;
 	left: 0;
@@ -110,16 +112,16 @@ body {
 
 	display: grid;
 	grid-template-columns: 30% auto 30%;
-	grid-gap: math.div($padding, 2);
-	padding: 0 math.div($padding, 2);
+	grid-gap: math.div(dimens-value('padding'), 2);
+	padding: 0 math.div(dimens-value('padding'), 2);
 
 	&.hidden {
-		bottom: -$softkey-height;
+		bottom: -dimens-value('softkey-height');
 	}
 
 	label {
 		max-width: 100%;
-		line-height: $softkey-height + 2px;
+		line-height: dimens-value('softkey-height') + 2px;
 	}
 
 	label.kai-softkey-center {
