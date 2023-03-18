@@ -74,9 +74,10 @@ namespace KaiUI {
 			};
 			KeyboardListener.bind(key, method.bind(this));
 		}
-		clear () {
+		clear (visible: boolean = true) {
 			KeyboardListener.clear([KeyboardKey.SoftLeft, KeyboardKey.Enter, KeyboardKey.SoftRight]);
 			this.element.reset();
+			this.visible = visible;
 		}
 	}
 
@@ -124,12 +125,10 @@ namespace KaiUI {
 					secondary: secondary ? ' secondary' : '',
 					content: ''
 				},
-				template: `
-					<div class="kai-view{{secondary}}">
-						<div class="kai-view-header">{{title}}</div>
-						<div class="kai-view-content">{{content}}</div>
-					</div>
-				`
+				template: `<div class="kai-view{{secondary}}">
+					<div class="kai-view-header">{{title}}</div>
+					<div class="kai-view-content">{{content}}</div>
+				</div>`
 			});
 			this.init = init;
 		}

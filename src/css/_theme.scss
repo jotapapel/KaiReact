@@ -1,0 +1,34 @@
+$themes: (
+	light: (
+		background-color: #fff,
+		primary-color: #333,
+		secondary-color: #666,
+		terciary-color: #888,
+        quaternary-color: #ccc
+  	),
+  	dark: (
+		background-color: #000,
+		primary-color: #fff,
+		secondary-color: #ccc,
+		terciary-color: #aaa,
+        quaternary-color: #888
+	)
+);
+
+@function theme-value($key) {
+	@return map-get( $theme-map, $key );
+}
+
+@mixin theme($themes: $themes) {
+	@each $theme, $map in $themes {
+	  [data-theme="#{$theme}"] & {
+			$theme-map: () !global;
+			@each $key, $submap in $map {
+				$value: map-get(map-get($themes, $theme), '#{$key}');
+				$theme-map: map-merge($theme-map, ($key: $value)) !global;
+			}
+			@content;
+			$theme-map: null !global;
+		}
+	}
+};

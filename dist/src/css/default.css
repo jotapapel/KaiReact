@@ -1,6 +1,7 @@
 *,
 *:before,
 *:after {
+  user-select: none;
   -moz-user-select: none;
   box-sizing: border-box;
 }
@@ -12,6 +13,14 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+[data-theme=light] body {
+  background-color: #fff;
+  color: #333;
+}
+[data-theme=dark] body {
+  background-color: #000;
+  color: #fff;
+}
 
 #kai-root {
   position: absolute;
@@ -19,6 +28,13 @@ body {
   top: 26px;
   left: 0;
   bottom: 0;
+  overflow: hidden;
+}
+[data-theme=light] #kai-root {
+  background-color: #fff;
+}
+[data-theme=dark] #kai-root {
+  background-color: #000;
 }
 
 #kai-view-container {
@@ -28,7 +44,7 @@ body {
   top: 0;
   left: 0;
   bottom: 30px;
-  transition: opacity 0.25s linear, bottom 0.25s linear;
+  transition: opacity 0.15s linear, bottom 0.15s linear;
 }
 #kai-softkey-container.hidden ~ #kai-view-container {
   bottom: 0;
@@ -41,6 +57,7 @@ body {
 }
 #kai-view-container .kai-view.secondary .kai-view-header {
   padding-left: 30px;
+  text-align: left;
 }
 #kai-view-container .kai-view.secondary .kai-view-header:after {
   content: "";
@@ -53,12 +70,12 @@ body {
   border-color: inherit;
   border-style: solid;
   transform: rotate(45deg);
-  opacity: 0.6;
 }
 #kai-view-container .kai-view .kai-view-header {
   line-height: 30px;
   height: 30px;
   padding: 0 10px;
+  text-align: center;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -68,28 +85,35 @@ body {
   top: 30px;
   left: 0;
   bottom: 0;
+  padding: 10px;
+  text-align: justify;
 }
 
 #kai-softkey-container {
   opacity: 1;
-  background-color: #ccc;
   height: 30px;
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
-  transition: bottom 0.25s linear;
+  transition: bottom 0.15s linear;
   display: grid;
   grid-template-columns: 30% auto 30%;
   grid-gap: 5px;
   padding: 0 5px;
+}
+[data-theme=light] #kai-softkey-container {
+  background: linear-gradient(to bottom, #ccc 2px, #fff 2px, #fff 100%);
+}
+[data-theme=dark] #kai-softkey-container {
+  background: linear-gradient(to bottom, #888 2px, #000 2px, #000 100%);
 }
 #kai-softkey-container.hidden {
   bottom: -30px;
 }
 #kai-softkey-container label {
   max-width: 100%;
-  line-height: 30px;
+  line-height: 32px;
 }
 #kai-softkey-container label.kai-softkey-center {
   text-align: center;

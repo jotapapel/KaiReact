@@ -1,7 +1,9 @@
 @use "sass:math";
+@import "theme.scss";
 
-$animation-time: 0.25s;
 $padding: 10px;
+$animation-time: 0.15s;
+
 $statusbar-height: 26px;
 $view-header-height: 30px;
 $softkey-height: 30px;
@@ -9,11 +11,17 @@ $softkey-height: 30px;
 *,
 *:before,
 *:after {
+	user-select: none;
 	-moz-user-select: none;
 	box-sizing: border-box;
 }
 
 body {
+	@include theme {
+		background-color: theme-value('background-color');
+		color: theme-value('primary-color');
+	}
+
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
 	width: 100vw;
@@ -22,11 +30,16 @@ body {
 }
 
 #kai-root {
+	@include theme {
+		background-color: theme-value('background-color');
+	}
+
 	position: absolute;
 	right: 0;
 	top: $statusbar-height;
 	left: 0;
 	bottom: 0;
+	overflow: hidden;
 }
 
 #kai-view-container {
@@ -51,6 +64,7 @@ body {
 
 		&.secondary .kai-view-header {
 			padding-left: $padding * 3;
+			text-align: left;
 		}
 
 		&.secondary .kai-view-header:after {
@@ -64,13 +78,13 @@ body {
 			border-color: inherit;
 			border-style: solid;
 			transform: rotate(45deg);
-			opacity: .6;
 		}
 
 		.kai-view-header {
 			line-height: $view-header-height;
 			height: $view-header-height;
 			padding: 0 $padding;
+			text-align: center;
 			text-transform: uppercase;
 			font-weight: 600;
 		}
@@ -81,13 +95,18 @@ body {
 			top: $view-header-height;
 			left: 0;
 			bottom: 0;
+			padding: $padding;
+			text-align: justify;
 		}
 	}
 }
 
 #kai-softkey-container {
+	@include theme {
+		background: linear-gradient(to bottom, theme-value('quaternary-color') 2px, theme-value('background-color') 2px, theme-value('background-color') 100%);
+	}
+
 	opacity: 1;
-	background-color: #ccc;
 	height: $softkey-height;
 	position: absolute;
 	right: 0;
@@ -106,7 +125,7 @@ body {
 
 	label {
 		max-width: 100%;
-		line-height: $softkey-height;
+		line-height: $softkey-height + 2px;
 	}
 
 	label.kai-softkey-center {
