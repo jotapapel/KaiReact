@@ -3,15 +3,12 @@
 @import "src/theme.scss";
 
 $animation-time: 0.15s;
-/* hello world! */
 
 *,
 *:before,
 *:after {
-	user-select: none;
 	-moz-user-select: none;
 	box-sizing: border-box;
-	transition: background-color $animation-time linear, color $animation-time linear;
 }
 
 body {
@@ -45,7 +42,7 @@ body {
 	bottom: dimens-value('softkey-height');
 	transition: opacity $animation-time linear, bottom $animation-time linear;
 
-	 #kai-softkey-container.hidden ~ & {
+	#kai-softkey-container.hidden ~ & {
 		bottom: 0;
 	}
 
@@ -98,6 +95,7 @@ body {
 #kai-softkey-container {
 	@include theme {
 		background: linear-gradient(to bottom, theme-value('quaternary-color') 2px, theme-value('background-color') 2px, theme-value('background-color') 100%);
+		color: theme-value('primary-color');
 	}
 
 	opacity: 1;
