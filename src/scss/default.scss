@@ -1,8 +1,9 @@
 @use "sass:math";
-@import "dimens.scss";
-@import "theme.scss";
+@import "src/dimens.scss";
+@import "src/theme.scss";
 
 $animation-time: 0.15s;
+/* hello world! */
 
 *,
 *:before,

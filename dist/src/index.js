@@ -1,1 +1,16 @@
-var SoftkeyHandler=new KaiUI.SoftkeyHandler,ViewManager=new KaiUI.ViewManager,MainView=(KeyboardListener.bind(KeyboardKey.Backspace,function(){ViewManager.back()}),new KaiUI.View("Theme Test",!1,function(){SoftkeyHandler.clear(!0),SoftkeyHandler.bind(KeyboardKey.Enter,"Toggle",function(){"light"==document.querySelector("html").getAttribute("data-theme")?ThemeManager.theme="dark":ThemeManager.theme="light"})}));ViewManager.current=MainView;
+var SoftkeyHandler = new KaiUI.SoftkeyHandler(), ViewManager = new KaiUI.ViewManager();
+KeyboardListener.bind(KeyboardKey.Backspace, function () {
+    ViewManager.back();
+});
+var MainView = new KaiUI.View('Theme Test', false, function () {
+    SoftkeyHandler.clear(true);
+    SoftkeyHandler.bind(KeyboardKey.Enter, 'Toggle', function () {
+        if (document.querySelector('html').getAttribute('data-theme') == 'light') {
+            ThemeManager.theme = 'dark';
+        }
+        else {
+            ThemeManager.theme = 'light';
+        }
+    });
+});
+ViewManager.current = MainView;
